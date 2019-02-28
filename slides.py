@@ -1,4 +1,9 @@
-filename = 'my_scripts/a_example.txt'
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+inFilename = ["./a_example.txt", "./b_lovely_landscapes.txt", "./c_memorable_moments.txt", "./d_pet_pictures.txt", "./e_shiny_selfies.txt"]
+outFilename = ["./a_output.txt", "./b_output.txt", "./c_output.txt", "./d_output.txt", "./e_output.txt"]
+
 
 class Photo(object):
     id = 0
@@ -23,20 +28,32 @@ class Slide(object):
 def popVertical(photos):
     return 
 
-fh = open(filename,"r")
+
+#MAIN################################3
+X=0 #0: el fichero a_xxx.txt , 1 el fichero b_xxx.txt
+fh = open(inFilename[X], "r")
 totalPhotos = fh.readline()
-photosRaw = fh.readlines()
+photoRaws = fh.readlines()
 fh.close()
 
 #prepare photos
-photos = []
-for i, photo in enumerate(photosRaw):
-    elements = photo.replace('\n','',1).split()
-    print elements
-    photos.append(Photo(i, elements[0], elements[2:len(elements)]))
+H = [] # las fotos horizontales
+V = [] # las verticales
+V2 = [] # las verticales emparejadas
 
-#Order photos by tags count
-# TODO
+for i, photoRaw in enumerate(photoRaws):
+    elements = photoRaw.replace('\n','',1).split()
+    photo= Photo(i, elements[0], elements[2:len(elements)])
+    if (photo.h == "H")
+        H.append(photo)
+    else:
+        V.append(photo)
+
+# Emparejar las V
+
+# Calcular los tags más usados
+
+# Calcular array con las fotos de mayor a menor nº de tags
 
 #prepare slides
 slides = []
@@ -59,8 +76,9 @@ slidesOrdered = []
 
 slidesOrdered = slides
 
+
 #write slides
-fw = open("result.txt", "w")
+fw = open(outFilename[X], "w")
 fw.write(str(len(slidesOrdered)))
 fw.write('\n')
 for slide in slidesOrdered:
