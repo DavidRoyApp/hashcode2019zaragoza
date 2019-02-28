@@ -12,7 +12,7 @@ class Photo(object):
     length = 0
     tags = []
 
-    def __init__(self, id1, id2, h, tags):
+    def __init__(self, id1, id2, h, length, tags):
         self.id1 = id1
         self.id2 = id2
         self.h = h
@@ -58,24 +58,38 @@ for i, photoRaw in enumerate(photoRaws):
 # Calcular los tags más usados
 TAG = []
 
+paired = pairVertical(sorted(V, key=length))
 # Calcular array con las fotos de mayor a menor nº de tags
 def pairVertical(vPhotos)
     Pairs = []
     for i, photo in enumerate(vPhotos)
         bestScore = 0
-        bestMatchId = -1
+        bestMatch = {}
+        matchedIds = []
         for j, check in enumerate(elements[i+1:len(vPhotos)]))
-            if(bestScore>sumTags(photo, check))
-                Pairs.append(Photo())
+            if (check.id1.in(matchedIds))
+                continue
+            commontags = sumTags(photo, check)
+            lencommontags = len(commontags)
+            if(bestScore >= photo.length+check.length)
+                Pairs.append(Photo(photo.id1, bestmatch.id1, photo.h, lencommontags, commontags))
+                matchedIds.append(photo.id1)
+                matchedIds.append(check.id1)
+                break
+            else
+                score = lencommontags
+                if(bestScore < score)
+                    bestScore = score
+                    bestmatch = check
+    return Pairs
 
-
-
+print(paired)
 
 def matchingTags(photo1, photo2)
     return len(photo1.tags.intersection(photo2.tags))
 
 def sumTags(photo1, photo2)
-    return photo1.length + photo2.length - matchingTags(photo1, photo2) 
+    return list(set(photo1+photo2))
 
 #prepare slides
 slides = []
