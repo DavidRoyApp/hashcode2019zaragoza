@@ -8,11 +8,13 @@ outFilename = ["./a_output.txt", "./b_output.txt", "./c_output.txt", "./d_output
 class Photo(object):
     id = 0
     h = 'H'
+    length = 0
     tags = []
 
-    def __init__(self, id, h, tags):
+    def __init__(self, id, h, length, tags):
         self.id = id
         self.h = h
+        self.length = length
         self.tags = tags
 
 class Slide(object):
@@ -43,7 +45,7 @@ V2 = [] # las verticales emparejadas
 
 for i, photoRaw in enumerate(photoRaws):
     elements = photoRaw.replace('\n','',1).split()
-    photo= Photo(i, elements[0], elements[2:len(elements)])
+    photo= Photo(i, elements[0], elements[1], elements[2:len(elements)])
     if (photo.h == "H")
         H.append(photo)
     else:
@@ -54,6 +56,23 @@ for i, photoRaw in enumerate(photoRaws):
 # Calcular los tags más usados
 
 # Calcular array con las fotos de mayor a menor nº de tags
+def pairVertical(vPhotos)
+    Pairs = []
+    for i, photo in enumerate(vPhotos)
+        bestScore = 0
+        bestMatchId = -1
+        for j, check in enumerate(elements[i+1:len(vPhotos)]))
+            if(bestScore>sumTags(photo, check))
+                Pairs.append(Photo())
+
+
+
+
+def matchingTags(photo1, photo2)
+    return len(photo1.tags.intersection(photo2.tags))
+
+def sumTags(photo1, photo2)
+    return photo1.length + photo2.length - matchingTags(photo1, photo2) 
 
 #prepare slides
 slides = []
