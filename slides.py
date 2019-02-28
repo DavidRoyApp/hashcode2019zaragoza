@@ -9,14 +9,16 @@ class Photo(object):
     id1 = 0
     id2 = 0
     h = 'H'
+    length = 0
     tags = []
     tagSum = 0
     score= 0
 
-    def __init__(self, id1, id2, h, tags):
+    def __init__(self, id1, id2, h, length, tags):
         self.id1 = id1
         self.id2 = id2
         self.h = h
+        self.length = length
         self.tags = tags
         self.tagSum = 0
         self.score = 0
@@ -53,14 +55,45 @@ V2 = [] # las verticales emparejadas
 
 for i, photoRaw in enumerate(photoRaws):
     elements = photoRaw.replace('\n','',1).split()
-    photo= Photo(i, i, elements[0], elements[2:len(elements)])
-    if photo.h == "H":
+    photo= Photo(i, i, elements[0], elements[1], elements[2:len(elements)])
+    if (photo.h == "H")
         H.append(photo)
     else:
         V.append(photo)
 
 # Emparejar las V en V2
+paired = pairVertical(sorted(V, key=length))
+# Calcular array con las fotos de mayor a menor nº de tags
+def pairVertical(vPhotos)
+    Pairs = []
+    for i, photo in enumerate(vPhotos)
+        bestScore = 0
+        bestMatch = {}
+        matchedIds = []
+        for j, check in enumerate(elements[i+1:len(vPhotos)]))
+            if (check.id1.in(matchedIds))
+                continue
+            commontags = sumTags(photo, check)
+            lencommontags = len(commontags)
+            if(bestScore >= photo.length+check.length)
+                Pairs.append(Photo(photo.id1, bestmatch.id1, photo.h, lencommontags, commontags))
+                matchedIds.append(photo.id1)
+                matchedIds.append(check.id1)
+                break
+            else
+                score = lencommontags
+                if(bestScore < score)
+                    bestScore = score
+                    bestmatch = check
+    return Pairs
 
+print(paired)
+
+def matchingTags(photo1, photo2)
+    return len(photo1.tags.intersection(photo2.tags))
+
+def sumTags(photo1, photo2)
+    return list(set(photo1+photo2))
 
 # Juntarlas todas
 for photo in H:
