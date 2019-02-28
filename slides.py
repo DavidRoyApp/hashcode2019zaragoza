@@ -6,13 +6,15 @@ outFilename = ["./a_output.txt", "./b_output.txt", "./c_output.txt", "./d_output
 
 
 class Photo(object):
-    id = 0
+    id1 = 0
+    id2 = 0
     h = 'H'
     length = 0
     tags = []
 
-    def __init__(self, id, h, length, tags):
-        self.id = id
+    def __init__(self, id1, id2, h, tags):
+        self.id1 = id1
+        self.id2 = id2
         self.h = h
         self.length = length
         self.tags = tags
@@ -45,15 +47,16 @@ V2 = [] # las verticales emparejadas
 
 for i, photoRaw in enumerate(photoRaws):
     elements = photoRaw.replace('\n','',1).split()
-    photo= Photo(i, elements[0], elements[1], elements[2:len(elements)])
+    photo= Photo(i, i, elements[0], elements[1], elements[2:len(elements)])
     if (photo.h == "H")
         H.append(photo)
     else:
         V.append(photo)
 
-# Emparejar las V
+# Emparejar las V en V2
 
 # Calcular los tags más usados
+TAG = []
 
 # Calcular array con las fotos de mayor a menor nº de tags
 def pairVertical(vPhotos)
